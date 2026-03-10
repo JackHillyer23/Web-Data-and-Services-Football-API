@@ -1,0 +1,5 @@
+player_id,match_id,minutes_played,goals,assists,shots,yellow_cards,red_cards
+1,1,90,1,0,3,0,0
+2,1,90,1,1,2,1,0
+3,1,90,1,0,4,0,0
+4,2,90,0,1,2,0,0

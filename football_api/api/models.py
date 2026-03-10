@@ -1,44 +1,55 @@
+# football_api/api/models.py
 from django.db import models
 
 
 class Team(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
-    league = models.CharField(max_length=100)
-    country = models.CharField(max_length=100)
+    league = models.CharField(max_length=50, default='Unknown')
+    country = models.CharField(max_length=50, default='Unknown')
 
     def __str__(self):
-        return self.name
-
-
-class Player(models.Model):
-    name = models.CharField(max_length=100)
-    age = models.IntegerField()
-    nationality = models.CharField(max_length=100)
-    position = models.CharField(max_length=50)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
+        return f"{self.name} ({self.league})"
 
 
 class Match(models.Model):
+    id = models.IntegerField(primary_key=True)
     date = models.DateField()
-    season = models.CharField(max_length=20)
-    home_team = models.ForeignKey(Team, related_name="home_matches", on_delete=models.CASCADE)
-    away_team = models.ForeignKey(Team, related_name="away_matches", on_delete=models.CASCADE)
-    home_score = models.IntegerField()
-    away_score = models.IntegerField()
+    home_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='home_matches')
+    away_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='away_matches')
+    home_score = models.IntegerField(null=True, blank=True)
+    away_score = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.home_team} vs {self.away_team}"
+        return f"{self.home_team} vs {self.away_team} on {self.date}"
 
 
-class PlayerMatchStats(models.Model):
-    player = models.ForeignKey(Player, on_delete=models.CASCADE)
-    match = models.ForeignKey(Match, on_delete=models.CASCADE)
-    minutes_played = models.IntegerField()
-    goals = models.IntegerField()
-    assists = models.IntegerField()
-    shots = models.IntegerField()
-    yellow_cards = models.IntegerField()
-    red_cards = models.IntegerField()
+class Player(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=100)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='players')
+    position = models.CharField(max_length=50, blank=True)
+    nationality = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return f"{self.name} ({self.team})"
+
+
+class Stats(models.Model):
+    # ✅ No manual id — Django auto-generates one, avoiding conflicts with update_or_create
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='stats')
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='player_stats')
+    goals = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    minutes_played = models.IntegerField(default=0)
+    # ✅ Added extra stat fields to match stats.csv
+    shots = models.IntegerField(default=0)
+    yellow_cards = models.IntegerField(default=0)
+    red_cards = models.IntegerField(default=0)
+
+    class Meta:
+        # ✅ Ensures one stats row per player per match — prevents duplicates on re-import
+        unique_together = ('player', 'match')
+
+    def __str__(self):
+        return f"{self.player} stats for match {self.match.id}"
