@@ -8,8 +8,6 @@ The API provides access to football data including teams, matches, players, and 
 The system imports data from CSV files and exposes it through API endpoints that return JSON responses.  
 A simple frontend interface is also included to demonstrate interaction with the API.
 
----
-
 ## Features
 
 - REST API for football data
@@ -20,8 +18,6 @@ A simple frontend interface is also included to demonstrate interaction with the
 - Django Admin interface for database management
 - Simple frontend interface for interacting with the API
 
----
-
 ## Technologies Used
 
 - Python
@@ -30,25 +26,6 @@ A simple frontend interface is also included to demonstrate interaction with the
 - SQLite (default Django database)
 - JavaScript (for frontend interaction)
 - HTML
-
----
-
-## Project Structure
-football_api/
-│
-├── football_api/ # Django project configuration
-│
-├── api/ # Main application
-│ ├── models.py
-│ ├── views.py
-│ ├── serializers.py
-│ ├── import_data.py
-│ ├── urls.py
-│ ├── admin.py
-│ └── data/ # CSV datasets
-│
-├── manage.py
-└── README.md
 
 ## Dataset
 
