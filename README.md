@@ -73,30 +73,17 @@ The API will run at: http://127.0.0.1:8000/
 
 ## API Endpoints
 
-Example endpoints:
-/api/teams/
-/api/matches/
-/api/players/
-/api/stats/
+GET /api/teams/  
+POST /api/teams/  
 
+GET /api/teams/{id}/  
+PATCH /api/teams/{id}/  
+DELETE /api/teams/{id}/  
 
-Example queries:
+Example filters:
 
-/api/matches/?team=Arsenal
-/api/players/?team_id=3
-
-Responses are returned in JSON format.
-
-## Example Response
-
-
-{
-"id": 1,
-"name": "Arsenal",
-"league": "Premier League",
-"country": "England"
-}
-
+/api/teams/?league=Premier League  
+/api/teams/?country=Spain
 
 ---
 
