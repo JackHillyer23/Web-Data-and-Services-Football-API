@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Football API Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── Header ───────────────────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <div class="header-badge">LIVE</div>
+      <h1>Football<span class="accent">API</span></h1>
+      <p class="header-sub">Top 5 Leagues · Season 2025/26</p>
+    </div>
+    <div class="header-stripe"></div>
+  </header>
+
+  <main>
+
+    <!-- ── Teams ─────────────────────────────────────────────── -->
+    <section class="card" id="section-teams">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="section-icon">🏟</span>
+          <h2>Teams</h2>
+          <span class="count-badge" id="teams-count">—</span>
+        </div>
+        <div class="card-controls">
+          <input class="search-input" id="team-search" placeholder="Search by name…" autocomplete="off" />
+          <button class="toggle-btn" data-target="teams-container" data-label="Teams">
+            <span class="toggle-icon">▾</span> Hide
+          </button>
+        </div>
+      </div>
+      <div id="teams-container" class="table-wrapper">
+        <div class="loading-state">Loading teams…</div>
+      </div>
+    </section>
+
+    <!-- ── Players ────────────────────────────────────────────── -->
+    <section class="card" id="section-players">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="section-icon">👤</span>
+          <h2>Players</h2>
+          <span class="count-badge" id="players-count">—</span>
+        </div>
+        <div class="card-controls">
+          <input class="search-input" id="player-search" placeholder="Search by name…" autocomplete="off" />
+          <button class="toggle-btn" data-target="players-container" data-label="Players">
+            <span class="toggle-icon">▾</span> Hide
+          </button>
+        </div>
+      </div>
+      <div id="players-container" class="table-wrapper">
+        <div class="loading-state">Loading players…</div>
+      </div>
+    </section>
+
+    <!-- ── Matches ────────────────────────────────────────────── -->
+    <section class="card" id="section-matches">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="section-icon">⚽</span>
+          <h2>Matches</h2>
+          <span class="count-badge" id="matches-count">—</span>
+        </div>
+        <div class="card-controls">
+          <button class="toggle-btn" data-target="matches-container" data-label="Matches">
+            <span class="toggle-icon">▾</span> Hide
+          </button>
+        </div>
+      </div>
+      <div id="matches-container" class="table-wrapper">
+        <div class="loading-state">Loading matches…</div>
+      </div>
+    </section>
+
+    <!-- ── Stats ──────────────────────────────────────────────── -->
+    <section class="card" id="section-stats">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="section-icon">📊</span>
+          <h2>Stats</h2>
+          <span class="count-badge" id="stats-count">—</span>
+        </div>
+        <div class="card-controls">
+          <button class="toggle-btn" data-target="stats-container" data-label="Stats">
+            <span class="toggle-icon">▾</span> Hide
+          </button>
+        </div>
+      </div>
+      <div id="stats-container" class="table-wrapper">
+        <div class="loading-state">Loading stats…</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Football API Dashboard · University Assignment · Data sourced from Top 5 Leagues</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
