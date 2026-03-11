@@ -85,6 +85,11 @@ Example filters:
 /api/teams/?league=Premier League  
 /api/teams/?country=Spain
 
+All API endpoints support full CRUD functionality:
+
+- Teams, Players, Matches, Stats can be **created, read, updated, deleted**.
+- Filtering, search, and ordering supported on most endpoints.
+
 ---
 
 ## API Documentation
