@@ -97,6 +97,16 @@ This project includes automatically generated API documentation via Swagger.
 
 These endpoints show all available routes, required parameters, and example responses.
 
+## Frontend Usage
+
+The project includes a simple frontend interface for browsing football data:
+
+- Open `frontend/index.html` in a browser.
+- Features:
+  - Collapsible sections for Teams, Players, Matches, Stats.
+  - Live search for Teams and Players.
+  - Styled tables with readable fields (e.g., team names, scores).
+
 ## Future Improvements
 
 Possible improvements include:
