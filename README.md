@@ -87,6 +87,16 @@ Example filters:
 
 ---
 
+## API Documentation
+
+This project includes automatically generated API documentation via Swagger.
+
+- **Swagger UI**: [http://127.0.0.1:8000/api/swagger/](http://127.0.0.1:8000/api/swagger/)
+- **ReDoc UI**: [http://127.0.0.1:8000/api/redoc/](http://127.0.0.1:8000/api/redoc/)
+- **JSON Schema**: [http://127.0.0.1:8000/api/swagger.json](http://127.0.0.1:8000/api/swagger.json)
+
+These endpoints show all available routes, required parameters, and example responses.
+
 ## Future Improvements
 
 Possible improvements include:
@@ -94,7 +104,6 @@ Possible improvements include:
 - Advanced filtering options
 - Authentication for API access
 - Expanded datasets
-- Interactive frontend dashboard
 - Data visualisation for player statistics
 
 ---
