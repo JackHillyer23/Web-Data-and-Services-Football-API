@@ -94,8 +94,8 @@ All API endpoints support full CRUD functionality:
 
 ## API Documentation
 
-This project includes automatically generated API documentation via Swagger.
-Football%20API%20Documentation.pdf
+You can view the full API documentation as a PDF here:  
+[Download API Documentation PDF](Football%20API%20Documentation.pdf)
 
 ## Frontend Usage
 
