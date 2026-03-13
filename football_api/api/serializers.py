@@ -4,7 +4,7 @@ from .models import Team, Player, Match, Stats
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = Team
-        fields = ['id', 'name', 'league', 'country']  # explicitly list fields
+        fields = ['id', 'name', 'league', 'country'] 
 
 class PlayerSerializer(serializers.ModelSerializer):
     team_name = serializers.SerializerMethodField()  # human-readable team name

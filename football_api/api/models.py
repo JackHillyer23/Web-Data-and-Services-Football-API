@@ -36,19 +36,16 @@ class Player(models.Model):
 
 
 class Stats(models.Model):
-    # ✅ No manual id — Django auto-generates one, avoiding conflicts with update_or_create
     player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='stats')
     match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='player_stats')
     goals = models.IntegerField(default=0)
     assists = models.IntegerField(default=0)
     minutes_played = models.IntegerField(default=0)
-    # ✅ Added extra stat fields to match stats.csv
     shots = models.IntegerField(default=0)
     yellow_cards = models.IntegerField(default=0)
     red_cards = models.IntegerField(default=0)
 
     class Meta:
-        # ✅ Ensures one stats row per player per match — prevents duplicates on re-import
         unique_together = ('player', 'match')
 
     def __str__(self):
